@@ -12,7 +12,9 @@ leaks = []
 
 for parent in sensors_totals['parent_addr'].unique():
     # considérer tous les compteurs qui ne sont pas le compteur général
+
     if pd.notna(parent):
+
         # calculer le total des enfants directs
         children_total = sensors_totals[sensors_totals['parent_addr'] == parent]['total'].sum()
 
