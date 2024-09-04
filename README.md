@@ -31,6 +31,24 @@ Docker : plateforme de conteneurisation qui permet de créer, déployer et d'ex�
   
 *Ces outils disposent d'une grande communauté ce qui permet de résoudre les problèmes récurents facilement.*
 
+## dépendences et quelques bonnes pratiques
+
+1. python doit être installé sur la machine de travail avec une version 3.8 ou supérieure (si ce n'est le cas)
+
+2. Pour lancer l'application en dehors de docker, il est recommandé d'installer la liste des librairies python dans le fichier *requirements.txt* avec la commande **pip install -r requirements.txt**
+
+3. exécution avec docker, on doit s'assurer que docker est bien installé sur la machine de travail.
+avant de lancer docker on doit aussi s'assurer que la virtualisation est activée dans le BIOS de la machine. 
+on n'a pas besoin d'installer les dépendences python manuellement, les fichiers Dockerfile et compose.yaml s'occuperont de la configuration de l'environnement
+
+* après installation de docker et activation de la virtualistaion, on peut vérifier la version de docker installé avec la commande **docker--version**
+
+* par la suite on peut construire notre image docker à partir de notre fichier Dockerfile avec la commande **docker-compose build**
+
+* lancencement du conteneur en détaché à partir de l'image construite avec la commande **docker-compose up -d**
+
+* on peut voir les conteneurs actifs et inactifs avec la commande **docker ps -a** et on peut aussi arrêter l'exécution du conteneur qu'on souhaite avec la commande **docker-compose down 'conteneur_id'**.
+
 ## conventions
 
 Les scripts de data science sont souvent court mais ils respectent tout de même des pratiques conventionnelles.
