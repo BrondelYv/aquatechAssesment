@@ -1,16 +1,43 @@
 # Test de recrutement développeur
 
+## objectifs du projet
+*Ce projet vise à analyser les données de consommation d'eau collectées par différents capteurs et à identifier les fuites d'eau totales par capteur et par jour.
+Nous avons automatisé le processus des scripts en python et est divisé en plusieurs étapes*
+
+1. totals.py aggrège les données de consommation d'eau par capteur.
+
+2. leaks.py analyse les données aggrégées pour identifier les fuites en comparant la consommation totale des capteurs parents et de leurs capteurs enfants.
+
+3. leaks_per_day.py analyse les fuites d'eau par jour et convertit les timestapms en dates ISO
+
+4. display_leaks_per_day.py permet de visualiser les fuites d'au par jour
+
+5. display_leaks_per_day_per_sensors.py visualise les fuites d'eau par jour et par capteur
+
+6. top20_totals.py permet de visualiser les top 20 capteurs qui ont consommé plus de litre d'eau
+
+7. top20_leaks.py visaulise les top 20 capteurs qui ont plus fuité en litre d'eau
+
 ## technologies
-python : language simple d'accès connu pour ces librairies de data analyse
+python : language simple d'accès connu pour ces librairies de data science en raison de sa syntaxe simple et riche en bibliothèques, flexible et facile à utilser. 
+
+pandas : librairie indispensable pour la manipulation et traitement de données tabulaires en python, fournit des structures de données en DataFrames.
+
+numpy : utilitaire pour le traitement de vecteur souvent utilisé conjointement avec pandas pour le calcul numérique et pour améliorer les performences lors de la manipulation des données volumineuses (Big Data).
+
+matplotlib / seaborn : librairies de visualisation de données les plus connues et aident à comprendre les tendences et les anomalies dans les données.
+
+Docker : plateforme de conteneurisation qui permet de créer, déployer et d'exécuter des applications dans un environnement isolé et bien gérer les les dépendences.
   
-pandas : librairie indispensable pour la manipulation de données tabulaires  
-numpy : utilitaire pour le traitement de vecteur souvent utilisé conjointement avec pandas  
-matplotlib / seaborn : librairies de visualisation de données les plus connues.
-  
-*Ces outils disposent d'une grande communauté ce qui permet de résoudre les problèmes récurents facilement*
+*Ces outils disposent d'une grande communauté ce qui permet de résoudre les problèmes récurents facilement.*
 
 ## conventions
 
 Les scripts de data science sont souvent court mais ils respectent tout de même des pratiques conventionnelles.
-Par exemple, l'usage de snake_case et le cloisonement des datasets.
+Par exemple, l'usage du snake_case et le cloisonement des datasets. Cela permet de minimiser les erreurs et de faciliter la gestion des données tout au long du processus de traitement.
 
+## résultats
+
+1. csv : deux fichiers csv (leaks.csv, totals.csv)
+
+2. figure : quatre figures représentant <les fuites d'eau par jour>, <les fuites d'eau par jour et par capteur>, <les top 20 capteurs par total consommation d'eau> et <les top 20 capteurs par total fuite d'eau>.

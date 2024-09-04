@@ -1,5 +1,10 @@
+version: '3.7'
+
+
 services:
   app:
     build: .
+    volumes:
+      - ./result:/app/result
     ports:
       - "8000:5000"
