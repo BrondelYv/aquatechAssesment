@@ -27,6 +27,10 @@ numpy : utilitaire pour le traitement de vecteur souvent utilisé conjointement 
 
 matplotlib / seaborn : librairies de visualisation de données les plus connues et aident à comprendre les tendences et les anomalies dans les données.
 
+plotly : une librairie de visualisation qui rende nos graphes plus intéractive et on peut sélectionner une partie de la visualisation pour mieux analyser les données. 
+
+streamlit : pour visualiser les resultats du test via le port 8501, c'est une bibliothèque de python qui permet de créer des applications d'analyse de données ou de machine learning afin de faire des peésentations plus synthétiques.
+
 Docker : plateforme de conteneurisation qui permet de créer, déployer et d'exécuter des applications dans un environnement isolé et bien gérer les les dépendences.
   
 *Ces outils disposent d'une grande communauté ce qui permet de résoudre les problèmes récurents facilement.*
@@ -35,18 +39,25 @@ Docker : plateforme de conteneurisation qui permet de créer, déployer et d'ex�
 
 1. python doit être installé sur la machine de travail avec une version 3.8 ou supérieure (si ce n'est le cas)
 
-2. Pour lancer l'application en dehors de docker, il est recommandé d'installer la liste des librairies python dans le fichier *requirements.txt* avec la commande **pip install -r requirements.txt**
+2. Pour lancer l'application en dehors de docker, il est recommandé d'installer la liste des librairies python dans le fichier *requirements.txt*.
+ * **python -m venv env** pour créer l'environnement virtuel
+ * **env\Scripts\activate** pour activer l'environnement virtuel
+ * **pip install -r requirements.txt** pour installer toutes les dépendences
+ * on peut lancer nos fichier .py dans /script avec la commande : **python name_fichier.py** si dans result on n'a pas les données générées.
+ * enfin on peut lancer l'application avec la commande : **streamlit run streamlit_app.py**
 
 3. exécution avec docker, on doit s'assurer que docker est bien installé sur la machine de travail.
 
-* avant de lancer docker on doit aussi s'assurer que la virtualisation est activée dans le BIOS de la machine. 
+* avant de lancer docker on doit aussi s'assurer que la virtualisation est activée dans le BIOS de la machine.
 on n'a pas besoin d'installer les dépendences python manuellement, les fichiers Dockerfile et compose.yaml s'occuperont de la configuration de l'environnement
 
 * après installation de docker et activation de la virtualistaion, on peut vérifier la version de docker installé avec la commande **docker --version**
 
-* par la suite on peut construire notre image docker à partir de notre fichier Dockerfile avec la commande **docker-compose build**
+* par la suite on peut construire notre image docker à partir de notre fichier Dockerfile avec la commande **docker build -t name_image .**
 
-* lancencement du conteneur en détaché à partir de l'image construite avec la commande **docker-compose up -d**
+* lancencement du conteneur à partir de l'image construite avec la commande **docker run name_image**
+
+* une fois dans docker, il faut aller parametrer son port sur 8501 et ajouter le chemin **/result** afin d'écouter sur le localhost:8501:8501 pour voir les résultats du test.
 
 * on peut voir les conteneurs actifs et inactifs avec la commande **docker ps -a** et on peut aussi arrêter l'exécution du conteneur qu'on souhaite avec la commande **docker-compose down 'conteneur_id'**.
 
